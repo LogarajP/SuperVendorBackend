@@ -12,11 +12,13 @@ async function bootstrap() {
  .build();
  const document = SwaggerModule.createDocument(app, config);
  SwaggerModule.setup('api',app, document) 
- app.enableCors({
-  origin: 'http://your-react-native-app-url', // Replace with the URL of your React Native app
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, // You can set this to true if your React Native app sends cookies with the request
-});
+//  app.enableCors({
+//   origin: 'http://your-react-native-app-url', // Replace with the URL of your React Native app
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   credentials: true, // You can set this to true if your React Native app sends cookies with the request
+// });
+  const cors=require("cors");
+  app.use(cors({origin:"*"}));
  await app.listen(process.env.PORT, '0.0.0.0');
 }
 
