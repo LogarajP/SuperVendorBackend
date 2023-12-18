@@ -17,7 +17,7 @@ async function bootstrap() {
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, // You can set this to true if your React Native app sends cookies with the request
 });
- await app.listen(3001);
+ await app.listen(process.env.PORT, '0.0.0.0');
 }
 
 
